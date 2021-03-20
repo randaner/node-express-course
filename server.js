@@ -1,7 +1,28 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
+app.post('/login', (req,res) => {
+    const username = req.body.username;
+    const password = req.body.username;
 
+    const mockUsername = 'fork';
+    const mockPassword = 'spoon';
+
+    if (username === mockUsername && password === mockPassword) {
+        res.json({
+            success:true,
+            message: 'welcome',
+            token: 'TOKEN'
+        })
+    } else {
+        res.json({
+            success:false,
+            message:'bye'
+        })
+    }
+});
 
 const mockUserData = [
     {name: 'booger'},
