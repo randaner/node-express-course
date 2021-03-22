@@ -5,12 +5,13 @@ app.use(bodyParser.json());
 
 app.post('/login', (req,res) => {
     const username = req.body.username;
-    const password = req.body.username;
+    const password = req.body.password;
 
     const mockUsername = 'fork';
     const mockPassword = 'spoon';
-
+    console.log(username,password)
     if (username === mockUsername && password === mockPassword) {
+        console.log(username,password)
         res.json({
             success:true,
             message: 'welcome',
@@ -35,6 +36,10 @@ app.get('/users/:id', (req, res) => {
         message: 'here is the requested id',
         users: req.params.id
     })
+})
+
+app.get('/hi', () => {
+    Window.body.innerHTML = "<b>wow</b>"
 })
 
 app.listen(8000, () => {console.log('UP!')});
